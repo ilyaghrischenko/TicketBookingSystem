@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /api-docs
+
+spring:
+  application:
+    name: ticket-booking-system
+  jackson:
+    date-format: yyyy-MM-dd'T'HH:mm
+    time-zone: Europe/Moscow 
