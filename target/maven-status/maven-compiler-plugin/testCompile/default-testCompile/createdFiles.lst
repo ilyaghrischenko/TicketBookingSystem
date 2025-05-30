@@ -1,2 +1,3 @@
-com/ticketbooking/application/service/EventServiceTest.class
 com/ticketbooking/application/service/TicketBookingServiceTest.class
+com/ticketbooking/config/TestConfig.class
+com/ticketbooking/application/service/EventServiceTest.class
