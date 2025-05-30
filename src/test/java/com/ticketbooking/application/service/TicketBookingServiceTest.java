@@ -38,10 +38,11 @@ class TicketBookingServiceTest {
 
         List<TicketDTO> availableTickets = ticketBookingService.findAvailableTicketsByEventName(eventName);
 
-        assertFalse(availableTickets.isEmpty(), "Should have found available tickets");
+        assertFalse(availableTickets.isEmpty(), "Should have found available tickets for event: " + eventName);
         availableTickets.forEach(ticket -> {
             assertEquals(TicketStatus.FREE, ticket.getStatus());
-            assertTrue(firstEvent.getId().equals(ticket.getEventId()));
+            assertEquals(firstEvent.getId(), ticket.getEventId(), 
+                "Ticket should belong to the event we searched for");
         });
     }
 

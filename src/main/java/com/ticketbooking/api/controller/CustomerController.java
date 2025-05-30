@@ -13,17 +13,17 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/customers")
 @RequiredArgsConstructor
-@Tag(name = "Customers", description = "API для работы с клиентами")
+@Tag(name = "Customers")
 public class CustomerController {
     private final CustomerRepository customerRepository;
 
-    @Operation(summary = "Получить список всех клиентов")
+    @Operation(summary = "Get all customers")
     @GetMapping
     public ResponseEntity<List<Customer>> getAllCustomers() {
         return ResponseEntity.ok(customerRepository.findAll());
     }
 
-    @Operation(summary = "Создать нового клиента")
+    @Operation(summary = "Create customer")
     @PostMapping
     public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer) {
         return ResponseEntity.ok(customerRepository.save(customer));

@@ -14,23 +14,23 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/tickets")
 @RequiredArgsConstructor
-@Tag(name = "Tickets", description = "API для работы с билетами")
+@Tag(name = "Tickets")
 public class TicketController {
     private final TicketBookingService ticketBookingService;
 
-    @Operation(summary = "Получить список предстоящих событий")
+    @Operation(summary = "Get upcoming events")
     @GetMapping("/upcoming-events")
     public ResponseEntity<List<EventDTO>> getUpcomingEvents() {
         return ResponseEntity.ok(ticketBookingService.findUpcomingEvents());
     }
 
-    @Operation(summary = "Получить список доступных билетов на событие")
+    @Operation(summary = "Get available tickets")
     @GetMapping("/available")
     public ResponseEntity<List<TicketDTO>> getAvailableTickets(@RequestParam String eventName) {
         return ResponseEntity.ok(ticketBookingService.findAvailableTicketsByEventName(eventName));
     }
 
-    @Operation(summary = "Забронировать билет")
+    @Operation(summary = "Book ticket")
     @PostMapping("/{ticketId}/book")
     public ResponseEntity<TicketDTO> bookTicket(
             @PathVariable Long ticketId,

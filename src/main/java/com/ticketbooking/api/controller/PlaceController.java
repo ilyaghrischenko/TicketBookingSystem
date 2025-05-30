@@ -13,17 +13,17 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/places")
 @RequiredArgsConstructor
-@Tag(name = "Places", description = "API для работы с местами проведения")
+@Tag(name = "Places")
 public class PlaceController {
     private final PlaceRepository placeRepository;
 
-    @Operation(summary = "Получить список всех мест проведения")
+    @Operation(summary = "Get all places")
     @GetMapping
     public ResponseEntity<List<Place>> getAllPlaces() {
         return ResponseEntity.ok(placeRepository.findAll());
     }
 
-    @Operation(summary = "Создать новое место проведения")
+    @Operation(summary = "Create place")
     @PostMapping
     public ResponseEntity<Place> createPlace(@RequestBody Place place) {
         return ResponseEntity.ok(placeRepository.save(place));
